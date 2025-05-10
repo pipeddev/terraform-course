@@ -5,3 +5,5 @@ terraform registry: https://registry.terraform.io/
 
 - terraform plan --out s3.plan
 - terraform apply s3.plan
+- terraform fmt // ordenar formato
+- terraform validate // validar el archivo.
