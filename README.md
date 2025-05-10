@@ -7,3 +7,4 @@ terraform registry: https://registry.terraform.io/
 - terraform apply s3.plan
 - terraform fmt // ordenar formato
 - terraform validate // validar el archivo.
+- alias // crear alias para ser utilizadas
