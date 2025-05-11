@@ -20,5 +20,9 @@ resource "aws_subnet" "private_subnet" {
   tags = {
     "Name" = "private_subnet"
   }
+  # ejemplo de dependencia explicita.
+  depends_on = [
+    aws_subnet.public_subnet
+  ]
 }
 
