@@ -13,3 +13,7 @@ terraform registry: https://registry.terraform.io/
 - terraform output linux_public_ip
 - terraform apply --auto-approve=true // no pide confirmación
 - terraform apply --target <target> // ejemplo: aws_subnet.public_subnet
+
+### Conceptos
+
+- trabajar con un tfstate remoto permite el trabajo en equipo, protección del tfstate, control de concurrencia, cifrado, confidencialidad y backups.
