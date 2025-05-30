@@ -1,0 +1,8 @@
+instance created with IP: 52.72.235.214
+instance 52.72.235.214 destroyed
+instance created with IP: 54.226.157.1
+instance 54.226.157.1 destroyed
+instance created with IP: 54.221.140.182
+instance 54.221.140.182 destroyed
+instance created with IP: 3.85.112.49
+instance 3.85.204.15 destroyed

@@ -22,7 +22,10 @@ terraform registry: https://registry.terraform.io/
 - terraform state show <nombre recurso> // - ver todo el detalle de un recurso ejemplo: terraform state show aws_instance.public_instance
 - terraform state mv // sirve para mover recursos dentro de nuestro terraform state.
 - terraform state rm // para eliminar recursos en el terraform.state NO recursos desplegados. ej: terraform state rm aws_instance.public_instance
+- terraform --replace=<nombre recurso> // reemplaza el recurso especificado durante la siguiente ejecución de `apply`, forzando su recreación.
 
 ### Conceptos
 
 - trabajar con un tfstate remoto permite el trabajo en equipo, protección del tfstate, control de concurrencia, cifrado, confidencialidad y backups.
+
+- provisioners: nos permiten ejecutar codigo de manera local o de manera remota en una instancia que estamos creando.
