@@ -6,3 +6,5 @@ instance created with IP: 54.221.140.182
 instance 54.221.140.182 destroyed
 instance created with IP: 3.85.112.49
 instance 3.85.204.15 destroyed
+instance created with IP: 3.86.207.134
+instance 3.86.207.134 destroyed
