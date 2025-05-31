@@ -22,7 +22,11 @@ terraform registry: https://registry.terraform.io/
 - terraform state show <nombre recurso> // - ver todo el detalle de un recurso ejemplo: terraform state show aws_instance.public_instance
 - terraform state mv // sirve para mover recursos dentro de nuestro terraform state.
 - terraform state rm // para eliminar recursos en el terraform.state NO recursos desplegados. ej: terraform state rm aws_instance.public_instance
-- terraform --replace=<nombre recurso> // reemplaza el recurso especificado durante la siguiente ejecución de `apply`, forzando su recreación.
+- terraform --replace=<resource_type>.<resource_name> // reemplaza el recurso especificado durante la siguiente ejecución de `apply`, forzando su recreación.
+- terraform taint <resource_type>.<resource_name> // El comando terraform taint se utiliza para marcar un recurso como "estropeado" o dañado, lo que indica a Terraform que ese recurso debe ser destruido y recreado en la próxima ejecución de terraform apply.
+- terraform untaint <resource_type>.<resource_name> // para desmarcar
+- export TF_LOG_PATH=logs.txt // genera los logs en un archivo.
+- export TF_LOG=TRACE|INFO|WARNING // india el tipo de logs
 
 ### Conceptos
 
