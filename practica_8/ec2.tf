@@ -1,4 +1,4 @@
-#ami-0f88e80871fd81e91
+# #ami-0f88e80871fd81e91
 resource "aws_instance" "public_instance" {
   ami           = var.ec2_specs.ami
   instance_type = var.ec2_specs.instance_type
@@ -43,7 +43,7 @@ resource "aws_instance" "public_instance" {
 
 
 
-  lifecycle {
+  # lifecycle {
     /* Esto indica que, si Terraform necesita reemplazar el recurso (por ejemplo, por un cambio en una propiedad inmutable), 
                           primero creará el nuevo recurso y solo después destruirá el antiguo. Así se evita tiempo de inactividad.*/
     #create_before_destroy = true 
@@ -57,5 +57,26 @@ resource "aws_instance" "public_instance" {
     /* Esto indica que Terraform no debe intentar reemplazar el recurso si se producen cambios en las propiedades especificadas. 
       Esto puede ser útil si sabes que un recurso va a cambiar fuera de Terraform y no quieres que eso cause un cambio en tu infraestructura. */
     #replace_triggered_by = [  ]
-  }
+  # }
 }
+
+
+# este recurso fue rescatado de un ejemplo donde aplicamos terraform import
+# terraform import aws_instance.mywebserver i-0c1234567890abcdef
+# el archivo no se modifica, pero al ejecutar el comando terraform state show aws_instance.mywebserver
+# se muestra la configuración del recurso importado.
+
+
+# resource "aws_instance" "mywebserver" {
+#   ami                                  = "ami-0953476d60561c955"
+#   instance_type                        = "t2.micro"
+#   key_name                             = data.aws_key_pair.key.key_name
+#   subnet_id                            = aws_subnet.public_subnet.id
+#   tags                                 = {
+#       "Name" = "MyServer"
+#   }
+ 
+#   vpc_security_group_ids               = [
+#       aws_security_group.sg_public_instance.id,
+#   ]
+# }
