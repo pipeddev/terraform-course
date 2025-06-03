@@ -28,6 +28,12 @@ terraform registry: https://registry.terraform.io/
 - export TF_LOG_PATH=logs.txt // genera los logs en un archivo.
 - export TF_LOG=TRACE|INFO|WARNING // india el tipo de logs
 - terraform import <resource_type>.<resource_name> <id_instance> = terraform import aws_instance.mywebserver i-0ecead067079c2571 // el import trae el recurso y su información en el terraform state, no modifica el archivo, pero si quieres ver la información que trajo puedes hacer con este comando: terraform state show aws_instance.mywebserver
+- Los workspace interface nos permiten reutilizar nuestro código para desplegarlo en diferentes ambiente development o production. sin embargo, no es una opción muy popular.
+- terraform workspace list
+- terraform workspace new <name> // para crear un nuevo workspace
+- terraform workspace select <name> = terraform workspace select default // para cambiar de workspace
+- terraform workspace delete <name> // elimina el workspace.
+- terraform workspace select <name> // cambiar el workspace
 
 ### Conceptos
 
