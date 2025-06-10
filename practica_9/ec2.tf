@@ -17,7 +17,7 @@ resource "aws_instance" "public_instance" {
   user_data = file("scripts/userdata.sh") # Archivo de script de usuario para inicialización
 
   tags = {
-    "Name" = each.value
+    "Name" = "${each.value}-${local.suffix}"
   }
 }
 
@@ -33,6 +33,6 @@ resource "aws_instance" "monitoring_instance" {
   user_data = file("scripts/userdata.sh") # Archivo de script de usuario para inicialización
 
   tags = {
-    "Name" = "Monitoreo"
+    "Name" = "Monitoreo-${local.suffix}"
   }
 }
