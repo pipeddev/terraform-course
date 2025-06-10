@@ -3,7 +3,7 @@ resource "aws_vpc" "vpc_virginia" {
   # se utiliza cuando utilizamos workspaces
   #cidr_block = lookup(var.virginia_cidr,terraform.workspace)
   tags = {
-    "Name" = "VPC_VIRGINIA"
+    "Name" = "vpc_virginia-${local.suffix}" # vpc_virginia_temp
   }
 }
 
@@ -12,7 +12,7 @@ resource "aws_subnet" "public_subnet" {
   cidr_block              = var.subnets[0]
   map_public_ip_on_launch = true
   tags = {
-    "Name" = "public_subnet" # public_subnet_temp
+    "Name" = "public_subnet-${local.suffix}" # public_subnet_temp
   }
 }
 
@@ -20,7 +20,7 @@ resource "aws_subnet" "private_subnet" {
   vpc_id     = aws_vpc.vpc_virginia.id
   cidr_block = var.subnets[1]
   tags = {
-    "Name" = "private_subnet" # private_subnet_temp
+    "Name" = "private_subnet-${local.suffix}" # private_subnet_temp
   }
   # ejemplo de dependencia explicita.
   depends_on = [
@@ -32,7 +32,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc_virginia.id
 
   tags = {
-    Name = "igw vpc virginia"
+    Name = "igw vpc virginia-${local.suffix}"
   }
 }
 
@@ -45,7 +45,7 @@ resource "aws_route_table" "public_crt" {
   }
 
   tags = {
-    Name = "public crt"
+    Name = "public crt-${local.suffix}"
   }
 }
 
@@ -60,7 +60,7 @@ resource "aws_security_group" "sg_public_instance" {
   vpc_id      = aws_vpc.vpc_virginia.id
 
   tags = {
-    Name = "Public Instance SG"
+    Name = "Public Instance SG-${local.suffix}"
   }
 }
 
