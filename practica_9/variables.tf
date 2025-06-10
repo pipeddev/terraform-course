@@ -34,3 +34,8 @@ variable "ec2_specs" {
   description = "parametro de la instancia"
   type = map(string)
 }
+
+variable "enable_monitoring" {
+  description = "Habilita el despliegue de un servicio monitoring"
+  type        = number #bool
+}
