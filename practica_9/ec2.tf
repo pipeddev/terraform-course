@@ -4,7 +4,7 @@ variable "instancias" {
   description = "Nombre de instancias"
   #type = list(string) sirve para ser usado con count o hacer un parse en la instancia.
   type = set(string)
-  default = [  "mysql", "jumpserver" ]
+  default = [ "apache" ] #  "mysql", "jumpserver"
 }
 resource "aws_instance" "public_instance" {
   #count         = length(var.instancias)
